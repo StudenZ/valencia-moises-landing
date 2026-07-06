@@ -97,7 +97,7 @@ En las demás hojas de estilo (como en `componentes.css` o `estilos.css`), estos
 
 ## Instrucciones para Abrir la Página Localmente
 1. Clona o descarga esta carpeta en tu computadora.
-2. Abre la carpeta `landingpage-eventos-valencia-moises`.
+2. Abre la carpeta `valencia-moises-landing`.
 3. Haz doble clic en el archivo `index.html` para abrirlo directamente en tu navegador web predeterminado (Chrome, Firefox, Edge, Safari, etc.).
 4. Si deseas realizar pruebas en vivo y ver cambios en tiempo real, puedes utilizar la extensión de VS Code **Live Server**.
 

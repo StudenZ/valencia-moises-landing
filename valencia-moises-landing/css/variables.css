@@ -1,0 +1,59 @@
+/* ==========================================================================
+   Variables CSS - Aura Eventos
+   ========================================================================== */
+
+/*
+   ¿Qué es y para qué sirve una variable en CSS?
+   Una variable en CSS (también conocida como Custom Property) es una entidad definida por el
+   desarrollador que contiene un valor específico que puede ser reutilizado en cualquier parte
+   del documento CSS. Sirve para centralizar valores recurrentes (colores, fuentes, espaciados,
+   bordes), de modo que si se requiere realizar un cambio de diseño, solo se debe modificar
+   el valor en un único lugar (dentro de :root) y este se propagará automáticamente en todas
+   las clases que lo utilicen, mejorando significativamente la mantenibilidad, escalabilidad
+   y legibilidad del código.
+
+   Cómo se usa en este proyecto:
+   En este proyecto, se definen las variables dentro del selector `:root` (el nivel más alto)
+   para almacenar la paleta de colores oficial asignada, tipografías y sombras. Luego, son llamadas
+   mediante la función `var(--nombre-de-variable)`.
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+:root {
+    /* Paleta de Colores Oficial (Asignada) */
+    --color-lavanda: #D5CBEA;     /* Lavanda pastel */
+    --color-azul-nube: #C5DCEB;   /* Azul nube */
+    --color-rosado-frio: #E6CBD8; /* Rosado frío */
+    --color-gris-pizarra: #505D6A; /* Gris pizarra (Principal para contraste y textos) */
+
+    /* Roles de Color Semánticos */
+    --color-principal: var(--color-gris-pizarra);
+    --color-secundario: var(--color-azul-nube);
+    --color-acento: var(--color-lavanda);
+    --color-resaltado: var(--color-rosado-frio);
+
+    /* Fondos y Textos (Optimizados para Accesibilidad WCAG AA) */
+    --color-fondo-pagina: #F4F6F8;
+    --color-fondo-card: #FFFFFF;
+    --color-texto-oscuro: #2C353F;   /* Gris oscuro con buen contraste */
+    --color-texto-claro: #FFFFFF;
+    --color-texto-mutado: #5D6B79;  /* Gris pizarra atenuado */
+
+    /* Tipografías */
+    --fuente-titulos: 'Outfit', sans-serif;
+    --fuente-cuerpo: 'Outfit', sans-serif;
+    --fuente-decorativa: 'Playfair Display', serif;
+
+    /* Sombras y Bordes */
+    --sombra-suave: 0 4px 12px rgba(80, 93, 106, 0.08);
+    --sombra-media: 0 8px 24px rgba(80, 93, 106, 0.12);
+    --sombra-destacada: 0 12px 30px rgba(213, 203, 234, 0.3); /* Sombra lavanda */
+    --border-radius-sm: 8px;
+    --border-radius-md: 16px;
+    --border-radius-lg: 24px;
+
+    /* Transiciones */
+    --transicion-rapida: all 0.2s ease-in-out;
+    --transicion-suave: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}

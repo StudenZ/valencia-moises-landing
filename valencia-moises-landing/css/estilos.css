@@ -1,0 +1,388 @@
+/* ==========================================================================
+   Estilos Generales y Layouts - Aura Eventos
+   ========================================================================== */
+
+/* 1. Reset y Estilos Base */
+body {
+    font-family: var(--fuente-cuerpo);
+    background-color: var(--color-fondo-pagina);
+    color: var(--color-texto-oscuro);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--fuente-titulos);
+    font-weight: 700;
+    color: var(--color-texto-oscuro);
+    margin-top: 0;
+}
+
+h1 {
+    font-size: 2.2rem;
+    line-height: 1.2;
+}
+
+h2 {
+    font-size: 1.8rem;
+    position: relative;
+    padding-bottom: 0.8rem;
+    margin-bottom: 2rem;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background-color: var(--color-acento);
+    border-radius: 2px;
+}
+
+/* Para centrar títulos de sección con su línea decorativa */
+.text-center h2::after {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+a {
+    color: var(--color-principal);
+    text-decoration: none;
+    transition: var(--transicion-rapida);
+}
+
+a:hover {
+    color: var(--color-texto-oscuro);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* 2. Estructura de Secciones (Mobile-First) */
+section {
+    padding: 3.5rem 0; /* Padding cómodo para pantallas pequeñas */
+}
+
+/* Fondos Especiales para Secciones */
+.sec-pastel-azul {
+    background-color: var(--color-azul-nube);
+}
+
+.sec-pastel-lavanda {
+    background-color: var(--color-lavanda);
+}
+
+.sec-blanco {
+    background-color: #FFFFFF;
+}
+
+/* 3. Hero Section (Mobile-First) */
+.hero {
+    background-color: var(--color-azul-nube); /* Fondo pastel por defecto */
+    padding-top: 7rem; /* Espacio para el navbar fijo */
+    padding-bottom: 4rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 250px;
+    height: 250px;
+    background-color: rgba(215, 203, 234, 0.4); /* Lavanda suave */
+    border-radius: 50%;
+    filter: blur(50px);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    margin-bottom: 2.5rem;
+}
+
+.hero-subtitle {
+    font-family: var(--fuente-titulos);
+    font-weight: 600;
+    color: var(--color-principal);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+    padding: 0.3rem 1rem;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 50px;
+}
+
+.hero-title {
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: var(--color-texto-oscuro);
+    margin-bottom: 1.5rem;
+}
+
+.hero-description {
+    font-size: 1.05rem;
+    color: var(--color-texto-mutado);
+    margin-bottom: 2rem;
+    max-width: 550px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-img-box {
+    position: relative;
+    z-index: 2;
+    max-width: 100%;
+}
+
+.hero-img-wrapper {
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    box-shadow: var(--sombra-media);
+    border: 5px solid #FFFFFF;
+}
+
+.hero-img-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+/* 4. Sección Nosotros */
+.nosotros-icon-wrapper {
+    width: 60px;
+    height: 60px;
+    border-radius: var(--border-radius-sm);
+    background-color: var(--color-lavanda);
+    color: var(--color-texto-oscuro);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 1.25rem;
+    box-shadow: var(--sombra-suave);
+    transition: var(--transicion-suave);
+}
+
+.nosotros-card:hover .nosotros-icon-wrapper {
+    background-color: var(--color-principal);
+    color: var(--color-texto-claro);
+    transform: rotateY(180deg);
+}
+
+/* 5. Sección Visual Destacada (Galería / Portafolio) */
+.galeria-item {
+    position: relative;
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    box-shadow: var(--sombra-suave);
+    aspect-ratio: 1/1;
+    margin-bottom: 1.5rem;
+    cursor: pointer;
+}
+
+.galeria-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transicion-suave);
+}
+
+.galeria-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(180deg, rgba(80, 93, 106, 0.1) 0%, rgba(44, 53, 63, 0.9) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1.5rem;
+    opacity: 0;
+    transition: var(--transicion-suave);
+}
+
+.galeria-item:hover img {
+    transform: scale(1.1);
+}
+
+.galeria-item:hover .galeria-overlay {
+    opacity: 1;
+}
+
+.galeria-overlay h4 {
+    color: var(--color-texto-claro);
+    margin-bottom: 0.25rem;
+    font-size: 1.15rem;
+}
+
+.galeria-overlay p {
+    color: var(--color-azul-nube);
+    font-size: 0.85rem;
+    margin-bottom: 0;
+}
+
+/* 6. Pie de Página (Footer) */
+footer {
+    background-color: var(--color-principal); /* Gris pizarra asignado */
+    color: rgba(255, 255, 255, 0.85);
+    padding: 4rem 0 2rem 0;
+    font-family: var(--fuente-cuerpo);
+}
+
+footer h4, footer h5 {
+    color: var(--color-texto-claro);
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+footer p, footer li {
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+footer .redes-sociales {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+footer .redes-sociales a {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--color-texto-claro);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transicion-suave);
+    font-size: 1.1rem;
+}
+
+footer .redes-sociales a:hover {
+    background-color: var(--color-azul-nube);
+    color: var(--color-texto-oscuro);
+    transform: translateY(-3px);
+}
+
+footer .footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+footer .footer-links li {
+    margin-bottom: 0.75rem;
+}
+
+footer .footer-links a {
+    color: rgba(255, 255, 255, 0.75);
+    transition: var(--transicion-rapida);
+}
+
+footer .footer-links a:hover {
+    color: var(--color-azul-nube);
+    padding-left: 5px;
+}
+
+footer .contacto-info li {
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+
+footer .contacto-info i {
+    color: var(--color-azul-nube);
+    font-size: 1.1rem;
+    margin-top: 3px;
+}
+
+footer .copyright {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* ==========================================================================
+   8. Media Queries - Adaptaciones Responsive (Desktop First & Mobile First)
+   ========================================================================== */
+
+/* TABLETA (min-width: 768px) */
+@media (min-width: 768px) {
+    section {
+        padding: 5rem 0;
+    }
+
+    h1 {
+        font-size: 3rem;
+    }
+
+    h2 {
+        font-size: 2.2rem;
+    }
+
+    /* Hero */
+    .hero {
+        text-align: left;
+        padding-top: 9rem;
+        padding-bottom: 6rem;
+    }
+
+    .hero-content {
+        margin-bottom: 0;
+    }
+
+    .hero-description {
+        margin-left: 0;
+    }
+
+    .hero-img-box {
+        margin-top: 0;
+    }
+}
+
+/* ESCRITORIO (min-width: 992px) */
+@media (min-width: 992px) {
+    section {
+        padding: 6rem 0;
+    }
+
+    .hero {
+        padding-top: 10rem;
+        padding-bottom: 8rem;
+    }
+
+    .hero-title {
+        font-size: 3.5rem;
+    }
+
+    .galeria-item {
+        margin-bottom: 0;
+    }
+}
+
+/* Evitar desbordamiento en anchos extremadamente pequeños */
+@media (max-width: 320px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+    .hero-title {
+        font-size: 2rem;
+    }
+}

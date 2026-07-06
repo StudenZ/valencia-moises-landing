@@ -1,0 +1,404 @@
+/* ==========================================================================
+   Componentes CSS - Aura Eventos
+   ========================================================================== */
+
+/* 1. Barra de Navegación (Navbar) */
+.custom-navbar {
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: var(--sombra-suave);
+    transition: var(--transicion-suave);
+    padding: 0.8rem 1rem;
+}
+
+.navbar-brand img {
+    height: 45px;
+    width: auto;
+    object-fit: contain;
+    transition: var(--transicion-rapida);
+}
+
+.navbar-brand:hover img {
+    transform: scale(1.05);
+}
+
+.navbar-brand span {
+    font-family: var(--fuente-titulos);
+    font-weight: 700;
+    color: var(--color-texto-oscuro);
+    letter-spacing: 0.5px;
+}
+
+.nav-link {
+    font-family: var(--fuente-titulos);
+    font-weight: 500;
+    color: var(--color-texto-mutado) !important;
+    padding: 0.5rem 1rem !important;
+    position: relative;
+    transition: var(--transicion-rapida);
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--color-principal) !important;
+}
+
+/* Efecto de línea inferior para links en desktop */
+@media (min-width: 992px) {
+    .nav-link::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: 0;
+        left: 50%;
+        background-color: var(--color-acento);
+        transition: var(--transicion-suave);
+        transform: translateX(-50%);
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+        width: 70%;
+    }
+}
+
+/* 2. Botones Personalizados */
+.btn-custom {
+    font-family: var(--fuente-titulos);
+    font-weight: 600;
+    padding: 0.8rem 1.8rem;
+    border-radius: var(--border-radius-sm);
+    transition: var(--transicion-suave);
+    border: 2px solid transparent;
+}
+
+.btn-custom-primary {
+    background-color: var(--color-principal);
+    color: var(--color-texto-claro);
+    box-shadow: 0 4px 10px rgba(80, 93, 106, 0.2);
+}
+
+.btn-custom-primary:hover {
+    background-color: transparent;
+    color: var(--color-principal);
+    border-color: var(--color-principal);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(80, 93, 106, 0.3);
+}
+
+.btn-custom-secondary {
+    background-color: var(--color-lavanda);
+    color: var(--color-texto-oscuro);
+    box-shadow: 0 4px 10px rgba(213, 203, 234, 0.25);
+}
+
+.btn-custom-secondary:hover {
+    background-color: transparent;
+    color: var(--color-texto-oscuro);
+    border-color: var(--color-lavanda);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(213, 203, 234, 0.4);
+}
+
+.btn-custom-accent {
+    background-color: var(--color-rosado-frio);
+    color: var(--color-texto-oscuro);
+    box-shadow: 0 4px 10px rgba(230, 203, 216, 0.25);
+}
+
+.btn-custom-accent:hover {
+    background-color: transparent;
+    color: var(--color-texto-oscuro);
+    border-color: var(--color-rosado-frio);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(230, 203, 216, 0.4);
+}
+
+/* 3. Tarjetas de Servicios (Cards) */
+.card-servicio {
+    background-color: var(--color-fondo-card);
+    border: none;
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--sombra-suave);
+    overflow: hidden;
+    height: 100%;
+    transition: var(--transicion-suave);
+    display: flex;
+    flex-direction: column;
+}
+
+.card-servicio:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--sombra-media);
+}
+
+.card-servicio .img-contenedor {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+}
+
+.card-servicio .img-contenedor img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transicion-suave);
+}
+
+.card-servicio:hover .img-contenedor img {
+    transform: scale(1.08);
+}
+
+/* Insignia de Ícono en la Tarjeta */
+.card-servicio .icono-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: var(--color-principal);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    box-shadow: var(--sombra-suave);
+    z-index: 10;
+    transition: var(--transicion-suave);
+}
+
+.card-servicio:hover .icono-badge {
+    background-color: var(--color-acento);
+    color: var(--color-texto-oscuro);
+    transform: rotate(15deg);
+}
+
+.card-servicio .card-body {
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.card-servicio .card-title {
+    font-family: var(--fuente-titulos);
+    font-weight: 700;
+    color: var(--color-texto-oscuro);
+    margin-bottom: 0.8rem;
+}
+
+.card-servicio .card-text {
+    color: var(--color-texto-mutado);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+/* 4. Tarjetas de Paquetes (Pricing Cards) */
+.card-paquete {
+    border: 2px solid transparent;
+    border-radius: var(--border-radius-md);
+    background-color: var(--color-fondo-card);
+    box-shadow: var(--sombra-suave);
+    transition: var(--transicion-suave);
+    height: 100%;
+}
+
+.card-paquete:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--sombra-media);
+}
+
+.card-paquete.destacado {
+    border-color: var(--color-acento);
+    box-shadow: var(--sombra-destacada);
+    position: relative;
+}
+
+.card-paquete.destacado::before {
+    content: 'Recomendado';
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--color-acento);
+    color: var(--color-texto-oscuro);
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 0.3rem 1.2rem;
+    border-radius: 50px;
+    box-shadow: var(--sombra-suave);
+}
+
+.paquete-precio {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-principal);
+    margin: 1.5rem 0;
+}
+
+.paquete-caracteristicas {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+}
+
+.paquete-caracteristicas li {
+    margin-bottom: 0.75rem;
+    color: var(--color-texto-mutado);
+    font-size: 0.95rem;
+}
+
+.paquete-caracteristicas li i {
+    color: var(--color-principal);
+    margin-right: 0.5rem;
+}
+
+/* 5. Métricas e Indicadores */
+.metrica-box {
+    text-align: center;
+    padding: 2rem 1rem;
+    background-color: var(--color-fondo-card);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--sombra-suave);
+    transition: var(--transicion-suave);
+    border-bottom: 4px solid transparent;
+}
+
+.metrica-box:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-acento);
+}
+
+.metrica-box .numero {
+    font-family: var(--fuente-titulos);
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: var(--color-principal);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.metrica-box .descripcion {
+    font-size: 1rem;
+    color: var(--color-texto-mutado);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* 6. Testimonios */
+.testimonio-card {
+    background-color: var(--color-fondo-card);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--sombra-suave);
+    padding: 2.5rem 2rem;
+    position: relative;
+    height: 100%;
+    border-left: 5px solid var(--color-resaltado);
+    transition: var(--transicion-suave);
+}
+
+.testimonio-card:hover {
+    box-shadow: var(--sombra-media);
+    transform: translateY(-3px);
+}
+
+.testimonio-card .comentario {
+    font-family: var(--fuente-cuerpo);
+    font-size: 1.05rem;
+    font-style: italic;
+    color: var(--color-texto-mutado);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.testimonio-card::after {
+    content: '"';
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    font-family: var(--fuente-decorativa);
+    font-size: 6rem;
+    color: rgba(230, 203, 216, 0.4); /* Rosado frío transparente */
+    line-height: 1;
+    font-weight: bold;
+    pointer-events: none;
+}
+
+.testimonio-autor {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.testimonio-autor img,
+.testimonio-autor .avatar-placeholder {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: var(--color-azul-nube);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-texto-oscuro);
+    font-weight: 700;
+    font-size: 1.1rem;
+    box-shadow: var(--sombra-suave);
+}
+
+.testimonio-autor .info h5 {
+    margin: 0;
+    font-family: var(--fuente-titulos);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-texto-oscuro);
+}
+
+.testimonio-autor .info p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--color-texto-mutado);
+}
+
+/* 7. Formulario */
+.formulario-card {
+    background-color: var(--color-fondo-card);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--sombra-media);
+    padding: 3rem 2.5rem;
+}
+
+.form-label {
+    font-family: var(--fuente-titulos);
+    font-weight: 600;
+    color: var(--color-texto-oscuro);
+    margin-bottom: 0.4rem;
+}
+
+.form-control,
+.form-select {
+    border: 2px solid #E2E8F0;
+    border-radius: var(--border-radius-sm);
+    padding: 0.75rem 1rem;
+    font-family: var(--fuente-cuerpo);
+    transition: var(--transicion-rapida);
+    color: var(--color-texto-oscuro);
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--color-acento);
+    box-shadow: 0 0 0 3px rgba(213, 203, 234, 0.4);
+    outline: none;
+}
+
+.form-control::placeholder {
+    color: #A0AEC0;
+}
